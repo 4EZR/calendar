@@ -1,0 +1,18 @@
+2024-09-10 08:58:08,084 - pony.orm - INFO - GET NEW CONNECTION
+2024-09-10 08:58:08,106 - pony.orm.sql - INFO - SELECT `d`.`id`, `d`.`name`, `d`.`created_at`, `d`.`updated_at`, `d`.`deleted_at`, `d`.`color`, `d`.`code`, `d`.`type`
+FROM `divisions` `d`
+WHERE `d`.`deleted_at` IS NULL
+2024-09-10 08:58:08,111 - pony.orm - INFO - COMMIT
+2024-09-10 08:58:08,111 - pony.orm - INFO - RELEASE CONNECTION
+2024-09-10 08:58:08,115 - pony.orm - INFO - GET CONNECTION FROM THE LOCAL POOL
+2024-09-10 08:58:08,115 - pony.orm.sql - INFO - SELECT `d`.`id`, `d`.`name`, `d`.`created_at`, `d`.`updated_at`, `d`.`deleted_at`, `d`.`color`, `d`.`code`, `d`.`type`
+FROM `divisions` `d`
+WHERE `d`.`deleted_at` IS NULL
+2024-09-10 08:58:08,117 - pony.orm - INFO - COMMIT
+2024-09-10 08:58:08,118 - pony.orm - INFO - RELEASE CONNECTION
+2024-09-10 08:58:45,354 - pony.orm - INFO - GET NEW CONNECTION
+2024-09-10 08:58:45,368 - pony.orm.sql - INFO - SELECT `d`.`id`, `d`.`name`, `d`.`created_at`, `d`.`updated_at`, `d`.`deleted_at`, `d`.`color`, `d`.`code`, `d`.`type`
+FROM `divisions` `d`
+WHERE `d`.`deleted_at` IS NULL
+2024-09-10 08:58:45,379 - pony.orm - INFO - COMMIT
+2024-09-10 08:58:45,380 - pony.orm - INFO - RELEASE CONNECTION
