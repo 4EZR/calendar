@@ -1,23 +1,34 @@
+import os
 import firebase_admin
 from firebase_admin import auth, credentials
 from firebase_admin import firestore
 
-cred = credentials.Certificate("path/to/your/serviceAccountKey.json")
+from dotenv import load_dotenv
+load_dotenv()
+
+credentials = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+
+cred = credentials.Certificate(credentials)
 firebase_admin.initialize_app(cred)
 
 
 db = firestore.client()
 
-def validate_token(id_token):
+def validate_firebase_token(id_token):
     try:
-
         decoded_token = auth.verify_id_token(id_token)
-        return decoded_token
+        return {
+            'valid': True,
+            'uid': decoded_token['uid'],
+            'email': decoded_token.get('email'),
+            'name': decoded_token.get('name')
+        }
     except auth.InvalidIdTokenError:
-        return None
+        return {'valid': False, 'error': 'Invalid token'}
+    except auth.ExpiredIdTokenError:
+        return {'valid': False, 'error': 'Token expired'}
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
-        return None
+        return {'valid': False, 'error': str(e)}
 
 # def disable_account(user_id):
 #     

@@ -1,16 +1,16 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-class DivisionBase(BaseModel):
+class DepartmentBase(BaseModel):
     name: str
     color: Optional[str] = None
     code: Optional[str] = None
     type: Optional[str] = None
-class DivisionCreate(DivisionBase):
+class DepartmentCreate(DepartmentBase):
     pass
-class DivisionUpdate(DivisionBase):
+class DepartmentUpdate(DepartmentBase):
     pass
-class Division(DivisionBase):
+class Department(DepartmentBase):
     id: int
     created_at: datetime
     updated_at: datetime

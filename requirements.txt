@@ -2,6 +2,9 @@
 # FastAPI and ASGI server
 fastapi==0.112.2
 uvicorn[standard]==0.22.0
+gunicorn==22.0.0
+psycopg2==2.9.10
+psycopg-binary==3.2.3
 pydantic==2.8.2
 pony==0.7.19
 
@@ -26,7 +29,7 @@ httpx==0.24.1
 
 # Background tasks and job queuing (optional, include if needed)
 # celery==5.3.0
-# redis==4.5.5
+redis== 5.0.8
 
 # Logging (optional, as Python's built-in logging might be sufficient)
 # loguru==0.7.0

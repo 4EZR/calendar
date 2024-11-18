@@ -1,22 +1,24 @@
-# models/division.py
-from pony.orm import PrimaryKey, Required, Optional, Set
+from pony.orm import PrimaryKey,Optional, Required, Set
+
 from app.config.database import db
-from datetime import datetime, timezone
-class Division(db.Entity):
-    _table_ = 'divisions'
+from datetime import datetime
+
+
+
+class Department(db.Entity):
+    _table_ = 'departments'
     
     id = PrimaryKey(int, auto=True, unsigned=True)
     name = Required(str)
+    code = Required(str)
+    division = Required('Division')
     color = Optional(str)
-    code = Optional(str)
-    type = Optional(str)
-    
     # Relationships
-    departments = Set('Department')
     users = Set('User')
-    hosted_events = Set('Event', reverse='host_division')
+    hosted_events = Set('Event', reverse='host_department')
     visible_events = Set('EventVisibility')
-
+    
+    
     created_at = Required(datetime, default=lambda: datetime.now())
     updated_at = Required(datetime, default=lambda: datetime.now())
 
